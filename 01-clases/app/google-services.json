@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "224882191875",
+    "project_id": "giso-2024a-cc-gr1",
+    "storage_bucket": "giso-2024a-cc-gr1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224882191875:android:46ac6fed34f827399b6836",
+        "android_client_info": {
+          "package_name": "com.example.a2024accgr1giso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa_5rmyLXWu7KLM4pVdA3EL5_DwR49-zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
