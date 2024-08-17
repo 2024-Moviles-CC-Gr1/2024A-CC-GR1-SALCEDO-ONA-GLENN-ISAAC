@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.example.libreria.app-mergeDebugResources-34:/layout/activity_google_maps_inicio.xml",
+        "source": "com.example.libreria.app-main-37:/layout/activity_google_maps_inicio.xml"
+    },
+    {
+        "merged": "com.example.libreria.app-mergeDebugResources-34:/layout/activity_charactercrud.xml",
+        "source": "com.example.libreria.app-main-37:/layout/activity_charactercrud.xml"
+    },
+    {
+        "merged": "com.example.libreria.app-mergeDebugResources-34:/layout/activity_statscrud.xml",
+        "source": "com.example.libreria.app-main-37:/layout/activity_statscrud.xml"
+    },
+    {
+        "merged": "com.example.libreria.app-mergeDebugResources-34:/layout/activity_ggoogle_maps.xml",
+        "source": "com.example.libreria.app-main-37:/layout/activity_ggoogle_maps.xml"
+    },
+    {
+        "merged": "com.example.libreria.app-mergeDebugResources-34:/layout/activity_main.xml",
+        "source": "com.example.libreria.app-main-37:/layout/activity_main.xml"
+    }
+]

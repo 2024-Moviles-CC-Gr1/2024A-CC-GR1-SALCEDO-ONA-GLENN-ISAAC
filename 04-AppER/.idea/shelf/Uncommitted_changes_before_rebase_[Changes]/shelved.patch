@@ -1,0 +1,3246 @@
+Index: ../01-clases/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme._2024ACCGR1GISO\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".BListView\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ACicloVida\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/AndroidManifest.xml b/../01-clases/app/src/main/AndroidManifest.xml
+--- a/../01-clases/app/src/main/AndroidManifest.xml	
++++ b/../01-clases/app/src/main/AndroidManifest.xml	
+@@ -13,12 +13,6 @@
+         android:theme="@style/Theme._2024ACCGR1GISO"
+         tools:targetApi="31">
+         <activity
+-            android:name=".BListView"
+-            android:exported="false" />
+-        <activity
+-            android:name=".ACicloVida"
+-            android:exported="false" />
+-        <activity
+             android:name=".MainActivity"
+             android:exported="true">
+             <intent-filter>
+Index: app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+===================================================================
+diff --git a/app/src/main/res/drawable-v24/ic_launcher_foreground.xml b/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/drawable-v24/ic_launcher_foreground.xml	
+@@ -0,0 +1,30 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:aapt="http://schemas.android.com/aapt"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
++        <aapt:attr name="android:fillColor">
++            <gradient
++                android:endX="85.84757"
++                android:endY="92.4963"
++                android:startX="42.9492"
++                android:startY="49.59793"
++                android:type="linear">
++                <item
++                    android:color="#44000000"
++                    android:offset="0.0" />
++                <item
++                    android:color="#00000000"
++                    android:offset="1.0" />
++            </gradient>
++        </aapt:attr>
++    </path>
++    <path
++        android:fillColor="#FFFFFF"
++        android:fillType="nonZero"
++        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
++        android:strokeWidth="1"
++        android:strokeColor="#00000000" />
++</vector>
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/MainActivity.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/MainActivity.kt b/app/src/main/java/com/example/libreria/MainActivity.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/MainActivity.kt	
+@@ -0,0 +1,53 @@
++package com.example.libreria
++
++import android.content.Intent
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++import com.google.android.material.snackbar.Snackbar
++
++class MainActivity : AppCompatActivity() {
++    fun mostrarSnackbar(texto:String){
++        val snack = Snackbar.make(
++            findViewById(R.id.id_layout_main),
++            texto,
++            Snackbar.LENGTH_INDEFINITE
++        )
++        snack.show()
++    }
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_main)
++
++        //Inicializar Base de Datos
++        DataBaseCharacter.tablaCharacter = SQLiteHelperCharacter(
++            this
++        )
++        DataBaseStats.tablaStats = SQLiteHelperStats(
++            this
++        )
++
++        val botonLibreria = findViewById<Button>(R.id.btn_character)
++        botonLibreria.setOnClickListener {
++            irActividad((CRUDCharacter::class.java))
++        }
++
++        val botonLibro = findViewById<Button>(R.id.btn_stats)
++        botonLibro.setOnClickListener {
++            irActividad((CRUDStats::class.java))
++        }
++
++        val botonGMaps = findViewById<Button>(R.id.btn_map)
++        botonGMaps.setOnClickListener {
++            irActividad(GGoogleMapsActivity::class.java)
++        }
++    }
++
++    fun irActividad(
++        clase: Class<*>
++    ){
++        val intent = Intent(this, clase)
++        startActivity(intent)
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/layout/activity_main.xml	
+@@ -0,0 +1,53 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/id_layout_main"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".MainActivity">
++
++    <TextView
++        android:id="@+id/txt_menu"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="MENU"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.37" />
++
++    <Button
++        android:id="@+id/btn_character"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="32dp"
++        android:text="Character"
++        app:layout_constraintEnd_toEndOf="@+id/txt_menu"
++        app:layout_constraintHorizontal_bias="0.507"
++        app:layout_constraintStart_toStartOf="@+id/txt_menu"
++        app:layout_constraintTop_toBottomOf="@+id/txt_menu" />
++
++    <Button
++        android:id="@+id/btn_stats"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="28dp"
++        android:text="Stats"
++        app:layout_constraintEnd_toEndOf="@+id/btn_character"
++        app:layout_constraintStart_toStartOf="@+id/btn_character"
++        app:layout_constraintTop_toBottomOf="@+id/btn_character" />
++
++    <Button
++        android:id="@+id/btn_map"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="32dp"
++        android:text="Map"
++        app:layout_constraintEnd_toEndOf="@+id/btn_stats"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="@+id/btn_stats"
++        app:layout_constraintTop_toBottomOf="@+id/btn_stats" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_statscrud.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_statscrud.xml b/app/src/main/res/layout/activity_statscrud.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/layout/activity_statscrud.xml	
+@@ -0,0 +1,144 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/cl_stats"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".CRUDCharacter">
++
++    <TextView
++        android:id="@+id/txt_crudStats"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Stats CRUD"
++        android:textSize="24sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.068" />
++
++    <Button
++        android:id="@+id/btn_actualizar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Actualizar"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.506"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_speed"
++        app:layout_constraintVertical_bias="0.571" />
++
++    <Button
++        android:id="@+id/btn_crear_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="32dp"
++        android:text="Crear"
++        app:layout_constraintBottom_toBottomOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintEnd_toStartOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toTopOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintVertical_bias="0.0" />
++
++    <Button
++        android:id="@+id/btn_buscar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="48dp"
++        android:text="Buscar"
++        app:layout_constraintEnd_toEndOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintStart_toStartOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toBottomOf="@+id/btn_actualizar_bdd" />
++
++    <Button
++        android:id="@+id/btn_eliminar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="32dp"
++        android:text="Eliminar"
++        app:layout_constraintBottom_toBottomOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintStart_toEndOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toTopOf="@+id/btn_actualizar_bdd" />
++
++    <EditText
++        android:id="@+id/input_statsID"
++        android:layout_width="122dp"
++        android:layout_height="44dp"
++        android:layout_marginTop="60dp"
++        android:ems="10"
++        android:hint="Ingrese el ID"
++        android:inputType="text"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.1"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/txt_crudStats"
++        app:layout_constraintVertical_bias="0.0" />
++
++    <EditText
++        android:id="@+id/input_guild"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="460dp"
++        android:ems="10"
++        android:hint="Ingrese el gremio"
++        android:inputType="text"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.144"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_statsID"
++        app:layout_constraintVertical_bias="0.309" />
++
++    <EditText
++        android:id="@+id/input_atk"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese el ataque"
++        android:inputType="number"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.144"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_guild"
++        app:layout_constraintVertical_bias="0.027" />
++
++    <EditText
++        android:id="@+id/input_def"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese la defensa"
++        android:inputType="number"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.144"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_atk"
++        app:layout_constraintVertical_bias="0.031" />
++
++    <EditText
++        android:id="@+id/input_speed"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese la velocidad"
++        android:inputType="numberDecimal"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.144"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_def"
++        app:layout_constraintVertical_bias="0.027" />
++
++    <CheckBox
++        android:id="@+id/chk_lucky"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Suerte"
++        tools:layout_editor_absoluteX="32dp"
++        tools:layout_editor_absoluteY="420dp" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/java/com/example/recyclerview/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/java/com/example/recyclerview/MainActivity.kt b/../03-RecyclerView/app/src/main/java/com/example/recyclerview/MainActivity.kt
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/java/com/example/recyclerview/MainActivity.kt	
+@@ -0,0 +1,20 @@
++package com.example.recyclerview
++
++import android.os.Bundle
++import androidx.activity.enableEdgeToEdge
++import androidx.appcompat.app.AppCompatActivity
++import androidx.core.view.ViewCompat
++import androidx.core.view.WindowInsetsCompat
++
++class MainActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        enableEdgeToEdge()
++        setContentView(R.layout.activity_main)
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
++            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
++            insets
++        }
++    }
++}
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/xml/data_extraction_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/xml/data_extraction_rules.xml b/../03-RecyclerView/app/src/main/res/xml/data_extraction_rules.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/xml/data_extraction_rules.xml	
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample data extraction rules file; uncomment and customize as necessary.
++   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
++   for details.
++-->
++<data-extraction-rules>
++    <cloud-backup>
++        <!-- TODO: Use <include> and <exclude> to control what is backed up.
++        <include .../>
++        <exclude .../>
++        -->
++    </cloud-backup>
++    <!--
++    <device-transfer>
++        <include .../>
++        <exclude .../>
++    </device-transfer>
++    -->
++</data-extraction-rules>
+\ No newline at end of file
+Index: app/src/main/res/xml/data_extraction_rules.xml
+===================================================================
+diff --git a/app/src/main/res/xml/data_extraction_rules.xml b/app/src/main/res/xml/data_extraction_rules.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/xml/data_extraction_rules.xml	
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample data extraction rules file; uncomment and customize as necessary.
++   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
++   for details.
++-->
++<data-extraction-rules>
++    <cloud-backup>
++        <!-- TODO: Use <include> and <exclude> to control what is backed up.
++        <include .../>
++        <exclude .../>
++        -->
++    </cloud-backup>
++    <!--
++    <device-transfer>
++        <include .../>
++        <exclude .../>
++    </device-transfer>
++    -->
++</data-extraction-rules>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/xml/backup_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/xml/backup_rules.xml b/../03-RecyclerView/app/src/main/res/xml/backup_rules.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/xml/backup_rules.xml	
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample backup rules file; uncomment and customize as necessary.
++   See https://developer.android.com/guide/topics/data/autobackup
++   for details.
++   Note: This file is ignored for devices older that API 31
++   See https://developer.android.com/about/versions/12/backup-restore
++-->
++<full-backup-content>
++    <!--
++   <include domain="sharedpref" path="."/>
++   <exclude domain="sharedpref" path="device.xml"/>
++-->
++</full-backup-content>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values-night/themes.xml b/../03-RecyclerView/app/src/main/res/values-night/themes.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values-night/themes.xml	
+@@ -0,0 +1,7 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Base.Theme.RecyclerView" parent="Theme.Material3.DayNight.NoActionBar">
++        <!-- Customize your dark theme here. -->
++        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
++    </style>
++</resources>
+\ No newline at end of file
+Index: ../03-RecyclerView/.idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/.idea/deploymentTargetDropDown.xml b/../03-RecyclerView/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/.idea/deploymentTargetDropDown.xml	
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <value>
++      <entry key="app">
++        <State />
++      </entry>
++    </value>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values/themes.xml b/../03-RecyclerView/app/src/main/res/values/themes.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values/themes.xml	
+@@ -0,0 +1,9 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Base.Theme.RecyclerView" parent="Theme.Material3.DayNight.NoActionBar">
++        <!-- Customize your light theme here. -->
++        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
++    </style>
++
++    <style name="Theme.RecyclerView" parent="Base.Theme.RecyclerView" />
++</resources>
+\ No newline at end of file
+Index: ../03-RecyclerView/.idea/kotlinc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/.idea/kotlinc.xml b/../03-RecyclerView/.idea/kotlinc.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/.idea/kotlinc.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="KotlinJpsPluginSettings">
++    <option name="version" value="1.9.0" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values/colors.xml b/../03-RecyclerView/app/src/main/res/values/colors.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values/colors.xml	
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: ../03-RecyclerView/.idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/.idea/compiler.xml b/../03-RecyclerView/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/.idea/compiler.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="17" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values/strings.xml b/../03-RecyclerView/app/src/main/res/values/strings.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values/strings.xml	
+@@ -0,0 +1,3 @@
++<resources>
++    <string name="app_name">Instagram</string>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_launcher_background.xml
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_launcher_background.xml b/app/src/main/res/drawable/ic_launcher_background.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/drawable/ic_launcher_background.xml	
+@@ -0,0 +1,170 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path
++        android:fillColor="#3DDC84"
++        android:pathData="M0,0h108v108h-108z" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M9,0L9,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,0L19,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,0L29,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,0L39,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,0L49,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,0L59,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,0L69,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,0L79,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M89,0L89,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M99,0L99,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,9L108,9"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,19L108,19"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,29L108,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,39L108,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,49L108,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,59L108,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,69L108,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,79L108,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,89L108,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,99L108,99"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,29L89,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,39L89,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,49L89,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,59L89,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,69L89,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,79L89,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,19L29,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,19L39,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,19L49,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,19L59,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,19L69,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,19L79,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++</vector>
+Index: ../03-RecyclerView/app/src/main/res/drawable/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_foreground.xml b/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_foreground.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_foreground.xml	
+@@ -0,0 +1,30 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:aapt="http://schemas.android.com/aapt"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
++        <aapt:attr name="android:fillColor">
++            <gradient
++                android:endX="85.84757"
++                android:endY="92.4963"
++                android:startX="42.9492"
++                android:startY="49.59793"
++                android:type="linear">
++                <item
++                    android:color="#44000000"
++                    android:offset="0.0" />
++                <item
++                    android:color="#00000000"
++                    android:offset="1.0" />
++            </gradient>
++        </aapt:attr>
++    </path>
++    <path
++        android:fillColor="#FFFFFF"
++        android:fillType="nonZero"
++        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
++        android:strokeWidth="1"
++        android:strokeColor="#00000000" />
++</vector>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml b/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml b/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml	
+@@ -0,0 +1,170 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path
++        android:fillColor="#3DDC84"
++        android:pathData="M0,0h108v108h-108z" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M9,0L9,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,0L19,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,0L29,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,0L39,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,0L49,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,0L59,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,0L69,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,0L79,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M89,0L89,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M99,0L99,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,9L108,9"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,19L108,19"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,29L108,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,39L108,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,49L108,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,59L108,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,69L108,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,79L108,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,89L108,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,99L108,99"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,29L89,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,39L89,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,49L89,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,59L89,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,69L89,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,79L89,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,19L29,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,19L39,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,19L49,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,19L59,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,19L69,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,19L79,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++</vector>
+Index: app/src/test/java/com/example/libreria/ExampleUnitTest.kt
+===================================================================
+diff --git a/app/src/test/java/com/example/libreria/ExampleUnitTest.kt b/app/src/test/java/com/example/libreria/ExampleUnitTest.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/test/java/com/example/libreria/ExampleUnitTest.kt	
+@@ -0,0 +1,17 @@
++package com.example.libreria
++
++import org.junit.Test
++
++import org.junit.Assert.*
++
++/**
++ * Example local unit test, which will execute on the development machine (host).
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++class ExampleUnitTest {
++    @Test
++    fun addition_isCorrect() {
++        assertEquals(4, 2 + 2)
++    }
++}
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher.xml b/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/mipmap-anydpi/ic_launcher.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/xml/backup_rules.xml
+===================================================================
+diff --git a/app/src/main/res/xml/backup_rules.xml b/app/src/main/res/xml/backup_rules.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/xml/backup_rules.xml	
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?><!--
++   Sample backup rules file; uncomment and customize as necessary.
++   See https://developer.android.com/guide/topics/data/autobackup
++   for details.
++   Note: This file is ignored for devices older that API 31
++   See https://developer.android.com/about/versions/12/backup-restore
++-->
++<full-backup-content>
++    <!--
++   <include domain="sharedpref" path="."/>
++   <exclude domain="sharedpref" path="device.xml"/>
++-->
++</full-backup-content>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/values/strings.xml	
+@@ -0,0 +1,5 @@
++<resources>
++    <string name="app_name">Libreria</string>
++    <string name="title_activity_google_maps_inicio">GoogleMapsInicio</string>
++    <string name="google_maps_key">AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs</string>
++</resources>
+Index: app/src/main/java/com/example/libreria/CRUDCharacter.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/CRUDCharacter.kt b/app/src/main/java/com/example/libreria/CRUDCharacter.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/CRUDCharacter.kt	
+@@ -0,0 +1,126 @@
++package com.example.libreria
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import com.google.android.material.snackbar.Snackbar
++import android.util.Log
++import android.widget.CheckBox
++
++class CRUDCharacter : AppCompatActivity() {
++
++    fun mostrarSnackbar(texto: String) {
++        val snack = Snackbar.make(
++            findViewById(R.id.cl_character),
++            texto,
++            Snackbar.LENGTH_INDEFINITE
++        )
++        snack.show()
++    }
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_charactercrud)
++
++        // Search character
++        val botonBuscarBDD = findViewById<Button>(R.id.btn_buscar_bdd)
++        botonBuscarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_id)
++            val name = findViewById<EditText>(R.id.input_name)
++            val gender = findViewById<EditText>(R.id.input_gender)
++            val age = findViewById<EditText>(R.id.input_age)
++            val birthday = findViewById<EditText>(R.id.input_birthday)
++            val difficulty = findViewById<EditText>(R.id.input_difficulty)
++            val playable = findViewById<CheckBox>(R.id.chk_playable)
++            try {
++                val character = DataBaseCharacter.tablaCharacter!!.consultarCharacterPorID(id.text.toString().toInt())
++                if (character == null) {
++                    mostrarSnackbar("Personaje no encontrado")
++                    id.setText("")
++                    name.setText("")
++                    gender.setText("")
++                    age.setText("")
++                    birthday.setText("")
++                    difficulty.setText("")
++                    playable.isChecked = false
++                } else {
++                    id.setText(character.idCharacter.toString())
++                    name.setText(character.name)
++                    gender.setText(character.gender)
++                    age.setText(character.age)
++                    birthday.setText(character.birthday)
++                    difficulty.setText(character.difficulty.toString())
++                    playable.isChecked = character.playable
++                    mostrarSnackbar("Personaje encontrado")
++                }
++            } catch (e: Exception) {
++                Log.e("CharacterCRUD", "Error al buscar personaje", e)
++            }
++        }
++
++        // FUNCION PARA CREAR UN PERSONAJE
++        val botonCrearBDD = findViewById<Button>(R.id.btn_crear_bdd)
++        botonCrearBDD.setOnClickListener {
++            val name = findViewById<EditText>(R.id.input_name)
++            val gender = findViewById<EditText>(R.id.input_gender)
++            val age = findViewById<EditText>(R.id.input_age)
++            val birthday = findViewById<EditText>(R.id.input_birthday)
++            val difficulty = findViewById<EditText>(R.id.input_difficulty)
++            val playable = findViewById<CheckBox>(R.id.chk_playable)
++            try {
++                val respuesta = DataBaseCharacter.tablaCharacter!!.crearCharacter(
++                    name.text.toString(),
++                    gender.text.toString(),
++                    age.text.toString().toInt(),
++                    birthday.text.toString(),
++                    difficulty.text.toString().toDouble(),
++                    playable.isChecked
++                )
++                if (respuesta) mostrarSnackbar("Libreria Creada!")
++            } catch (e: Exception) {
++                Log.e("CRUDLibreria", "Error al crear libreria", e)
++            }
++        }
++
++        // FUNCION PARA ACTUALIZAR UN PERSONAJE
++        val botonActualizarBDD = findViewById<Button>(R.id.btn_actualizar_bdd)
++        botonActualizarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_id)
++            val name = findViewById<EditText>(R.id.input_name)
++            val gender = findViewById<EditText>(R.id.input_gender)
++            val age = findViewById<EditText>(R.id.input_age)
++            val birthday = findViewById<EditText>(R.id.input_birthday)
++            val difficulty = findViewById<EditText>(R.id.input_difficulty)
++            val playable = findViewById<CheckBox>(R.id.chk_playable)
++            try {
++                val respuesta = DataBaseCharacter.tablaCharacter!!.actualizarCharacterFormulario(
++                    id.text.toString().toInt(),
++                    name.text.toString(),
++                    gender.text.toString(),
++                    age.text.toString().toInt(),
++                    birthday.text.toString(),
++                    difficulty.text.toString().toDouble(),
++                    playable.isChecked
++                )
++                if (respuesta) mostrarSnackbar("Personaje Actualizado!")
++            } catch (e: Exception) {
++                Log.e("CRUDCharacter", "Error al actualizar personaje", e)
++            }
++        }
++
++        // FUNCION PARA ELIMINAR UN PERSONAJE
++        val botonEliminarBDD = findViewById<Button>(R.id.btn_eliminar_bdd)
++        botonEliminarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_id)
++            try {
++                val respuesta = DataBaseCharacter.tablaCharacter!!.eliminarCharacterFormulario(
++                    id.text.toString().toInt()
++                )
++                if (respuesta) mostrarSnackbar("Libreria Eliminada!")
++            } catch (e: Exception) {
++                Log.e("CRUDLibreria", "Error al eliminar libreria", e)
++            }
++        }
++    }
++}
+Index: ../01-clases/app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">2024ACCGR1GISO</string>\r\n    <string name=\"saludo\">Greetings in portrait and english</string>\r\n    <string-array name=\"string_array_opciones\">\r\n        <item>Lunes</item>\r\n        <item>Martes</item>\r\n        <item>Miercoles</item>\r\n    </string-array>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/res/values/strings.xml b/../01-clases/app/src/main/res/values/strings.xml
+--- a/../01-clases/app/src/main/res/values/strings.xml	
++++ b/../01-clases/app/src/main/res/values/strings.xml	
+@@ -1,9 +1,4 @@
+ <resources>
+     <string name="app_name">2024ACCGR1GISO</string>
+-    <string name="saludo">Greetings in portrait and english</string>
+-    <string-array name="string_array_opciones">
+-        <item>Lunes</item>
+-        <item>Martes</item>
+-        <item>Miercoles</item>
+-    </string-array>
++    <string name="saludo">Hola amigos</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -0,0 +1,58 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools">
++
++    <uses-permission android:name="android.permission.INTERNET" />
++    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
++    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
++
++    <application
++        android:allowBackup="true"
++        android:dataExtractionRules="@xml/data_extraction_rules"
++        android:fullBackupContent="@xml/backup_rules"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:roundIcon="@mipmap/ic_launcher_round"
++        android:supportsRtl="true"
++        android:theme="@style/Theme.Libreria"
++        tools:targetApi="31">
++        <activity
++            android:name=".GGoogleMapsActivity"
++            android:exported="false" />
++        <!--
++             TODO: Before you run your application, you need a Google Maps API key.
++
++             To get one, follow the directions here:
++
++                https://developers.google.com/maps/documentation/android-sdk/get-api-key
++
++             Once you have your API key (it starts with "AIza"), define a new property in your
++             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
++             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
++        -->
++        <meta-data
++            android:name="com.google.android.geo.API_KEY"
++            android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs" />
++
++        <activity
++            android:name=".GoogleMapsInicio"
++            android:exported="false"
++            android:label="@string/title_activity_google_maps_inicio" />
++        <activity
++            android:name=".CRUDStats"
++            android:exported="false" />
++        <activity
++            android:name=".CRUDCharacter"
++            android:exported="false" />
++        <activity
++            android:name=".MainActivity"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++    </application>
++
++</manifest>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/androidTest/java/com/example/recyclerview/ExampleInstrumentedTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/androidTest/java/com/example/recyclerview/ExampleInstrumentedTest.kt b/../03-RecyclerView/app/src/androidTest/java/com/example/recyclerview/ExampleInstrumentedTest.kt
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/androidTest/java/com/example/recyclerview/ExampleInstrumentedTest.kt	
+@@ -0,0 +1,24 @@
++package com.example.recyclerview
++
++import androidx.test.platform.app.InstrumentationRegistry
++import androidx.test.ext.junit.runners.AndroidJUnit4
++
++import org.junit.Test
++import org.junit.runner.RunWith
++
++import org.junit.Assert.*
++
++/**
++ * Instrumented test, which will execute on an Android device.
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++@RunWith(AndroidJUnit4::class)
++class ExampleInstrumentedTest {
++    @Test
++    fun useAppContext() {
++        // Context of the app under test.
++        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
++        assertEquals("com.example.recyclerview", appContext.packageName)
++    }
++}
+\ No newline at end of file
+Index: ../01-clases/app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"text\">#FF000000</color>\r\n    <color name=\"background\">#FFFFFFFF</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/res/values/colors.xml b/../01-clases/app/src/main/res/values/colors.xml
+--- a/../01-clases/app/src/main/res/values/colors.xml	
++++ b/../01-clases/app/src/main/res/values/colors.xml	
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <color name="text">#FF000000</color>
+-    <color name="background">#FFFFFFFF</color>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
+ </resources>
+\ No newline at end of file
+Index: ../03-RecyclerView/app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/proguard-rules.pro b/../03-RecyclerView/app/proguard-rules.pro
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/proguard-rules.pro	
+@@ -0,0 +1,21 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/BCharacter.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/BCharacter.kt b/app/src/main/java/com/example/libreria/BCharacter.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/BCharacter.kt	
+@@ -0,0 +1,59 @@
++package com.example.libreria
++
++import android.os.Build
++import android.os.Parcel
++import android.os.Parcelable
++import androidx.annotation.RequiresApi
++
++class BCharacter (
++    var idCharacter:Int,
++    var name:String,
++    var gender:String,
++    var age:Int,
++    var birthday:String,
++    var difficulty:Double,
++    var playable:Boolean
++): Parcelable {
++    @RequiresApi(Build.VERSION_CODES.Q)
++    constructor(parcel: Parcel) : this(
++        parcel.readInt(),
++        parcel.readString()!!,
++        parcel.readString()!!,
++        parcel.readInt(),
++        parcel.readString()!!,
++        parcel.readDouble(),
++        parcel.readBoolean()
++    ) {
++    }
++
++    override fun toString(): String {
++        return "$name $gender $age $birthday $difficulty $playable"
++    }
++
++    @RequiresApi(Build.VERSION_CODES.Q)
++    override fun writeToParcel(parcel: Parcel, flags: Int) {
++        parcel.writeInt(idCharacter)
++        parcel.writeString(name)
++        parcel.writeString(gender)
++        parcel.writeInt(age)
++        parcel.writeString(birthday)
++        parcel.writeDouble(difficulty)
++        parcel.writeBoolean(playable)
++    }
++
++    override fun describeContents(): Int {
++        return 0
++    }
++
++    companion object CREATOR : Parcelable.Creator<BCharacter> {
++        @RequiresApi(Build.VERSION_CODES.Q)
++        override fun createFromParcel(parcel: Parcel): BCharacter {
++            return BCharacter(parcel)
++        }
++
++        override fun newArray(size: Int): Array<BCharacter?> {
++            return arrayOfNulls(size)
++        }
++    }
++
++}
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/test/java/com/example/recyclerview/ExampleUnitTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/test/java/com/example/recyclerview/ExampleUnitTest.kt b/../03-RecyclerView/app/src/test/java/com/example/recyclerview/ExampleUnitTest.kt
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/test/java/com/example/recyclerview/ExampleUnitTest.kt	
+@@ -0,0 +1,17 @@
++package com.example.recyclerview
++
++import org.junit.Test
++
++import org.junit.Assert.*
++
++/**
++ * Example local unit test, which will execute on the development machine (host).
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++class ExampleUnitTest {
++    @Test
++    fun addition_isCorrect() {
++        assertEquals(4, 2 + 2)
++    }
++}
+\ No newline at end of file
+Index: ../01-clases/app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/cl_ciclo_vida\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView\"\r\n        android:layout_width=\"341dp\"\r\n        android:layout_height=\"37dp\"\r\n        android:text=\"@string/saludo\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@color/text\"\r\n        android:textSize=\"24sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.497\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btn_ciclo_vida\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:text=\"C. Vida\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/textView\"\r\n        app:layout_constraintHorizontal_bias=\"0.498\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/textView\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btn_ir_list_view\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"L. View\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/btn_ciclo_vida\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/btn_ciclo_vida\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/btn_ciclo_vida\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/res/layout/activity_main.xml b/../01-clases/app/src/main/res/layout/activity_main.xml
+--- a/../01-clases/app/src/main/res/layout/activity_main.xml	
++++ b/../01-clases/app/src/main/res/layout/activity_main.xml	
+@@ -2,45 +2,18 @@
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/cl_ciclo_vida"
++    android:id="@+id/main"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:background="@color/background"
+     tools:context=".MainActivity">
+ 
+     <TextView
+-        android:id="@+id/textView"
+-        android:layout_width="341dp"
+-        android:layout_height="37dp"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
+         android:text="@string/saludo"
+-        android:textAlignment="center"
+-        android:textColor="@color/text"
+-        android:textSize="24sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="0.497"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
+-    <Button
+-        android:id="@+id/btn_ciclo_vida"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_marginTop="20dp"
+-        android:text="C. Vida"
+-        app:layout_constraintEnd_toEndOf="@+id/textView"
+-        app:layout_constraintHorizontal_bias="0.498"
+-        app:layout_constraintStart_toStartOf="@+id/textView"
+-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+-
+-    <Button
+-        android:id="@+id/btn_ir_list_view"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="L. View"
+-        app:layout_constraintEnd_toEndOf="@+id/btn_ciclo_vida"
+-        app:layout_constraintHorizontal_bias="1.0"
+-        app:layout_constraintStart_toStartOf="@+id/btn_ciclo_vida"
+-        app:layout_constraintTop_toBottomOf="@+id/btn_ciclo_vida" />
+-
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: ../01-clases/app/src/main/java/com/example/a2024accgr1giso/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.a2024accgr1giso\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport android.widget.Button\r\nimport androidx.activity.enableEdgeToEdge\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        enableEdgeToEdge()\r\n        setContentView(R.layout.activity_main)\r\n        val botonACicloVida = findViewById<Button>(R.id.btn_ciclo_vida)\r\n        botonACicloVida\r\n            .setOnClickListener {\r\n                irActividad(ACicloVida::class.java)\r\n            }\r\n        val botonBListView = findViewById<Button>(R.id.btn_ir_list_view)\r\n        botonBListView\r\n            .setOnClickListener {\r\n                irActividad(BListView::class.java)\r\n            }\r\n    }\r\n\r\n    fun irActividad(\r\n        clase: Class<*>\r\n    ){\r\n        val intent = Intent(this, clase)\r\n        startActivity(intent)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/java/com/example/a2024accgr1giso/MainActivity.kt b/../01-clases/app/src/main/java/com/example/a2024accgr1giso/MainActivity.kt
+--- a/../01-clases/app/src/main/java/com/example/a2024accgr1giso/MainActivity.kt	
++++ b/../01-clases/app/src/main/java/com/example/a2024accgr1giso/MainActivity.kt	
+@@ -1,8 +1,6 @@
+ package com.example.a2024accgr1giso
+ 
+-import android.content.Intent
+ import android.os.Bundle
+-import android.widget.Button
+ import androidx.activity.enableEdgeToEdge
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.core.view.ViewCompat
+@@ -13,22 +11,10 @@
+         super.onCreate(savedInstanceState)
+         enableEdgeToEdge()
+         setContentView(R.layout.activity_main)
+-        val botonACicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
+-        botonACicloVida
+-            .setOnClickListener {
+-                irActividad(ACicloVida::class.java)
+-            }
+-        val botonBListView = findViewById<Button>(R.id.btn_ir_list_view)
+-        botonBListView
+-            .setOnClickListener {
+-                irActividad(BListView::class.java)
+-            }
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
++            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
++            insets
++        }
+     }
+-
+-    fun irActividad(
+-        clase: Class<*>
+-    ){
+-        val intent = Intent(this, clase)
+-        startActivity(intent)
+-    }
+ }
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values/preloaded_fonts.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values/preloaded_fonts.xml b/../03-RecyclerView/app/src/main/res/values/preloaded_fonts.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values/preloaded_fonts.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <array name="preloaded_fonts" translatable="false">
++        <item>@font/ins</item>
++    </array>
++</resources>
+Index: ../03-RecyclerView/app/src/main/res/font/ins.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/font/ins.xml b/../03-RecyclerView/app/src/main/res/font/ins.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/font/ins.xml	
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
++        app:fontProviderAuthority="com.google.android.gms.fonts"
++        app:fontProviderPackage="com.google.android.gms"
++        app:fontProviderQuery="Aclonica"
++        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
++</font-family>
+Index: ../03-RecyclerView/app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/.gitignore b/../03-RecyclerView/app/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/.gitignore	
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/res/values/font_certs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/res/values/font_certs.xml b/../03-RecyclerView/app/src/main/res/values/font_certs.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/res/values/font_certs.xml	
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <array name="com_google_android_gms_fonts_certs">
++        <item>@array/com_google_android_gms_fonts_certs_dev</item>
++        <item>@array/com_google_android_gms_fonts_certs_prod</item>
++    </array>
++    <string-array name="com_google_android_gms_fonts_certs_dev">
++        <item>
++            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAeFw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVyxW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8XW8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexAcKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkwHQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0cxb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrPzgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXclaXjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05aIskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+aayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUWEv9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=
++        </item>
++    </string-array>
++    <string-array name="com_google_android_gms_fonts_certs_prod">
++        <item>
++            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfYwXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LWuT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0zOHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Ylmn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14aloXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCEyj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTbQe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZMcUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK
++        </item>
++    </string-array>
++</resources>
+Index: ../03-RecyclerView/app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/build.gradle.kts b/../03-RecyclerView/app/build.gradle.kts
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/build.gradle.kts	
+@@ -0,0 +1,48 @@
++plugins {
++    alias(libs.plugins.androidApplication)
++    alias(libs.plugins.jetbrainsKotlinAndroid)
++}
++
++android {
++    namespace = "com.example.recyclerview"
++    compileSdk = 34
++
++    defaultConfig {
++        applicationId = "com.example.recyclerview"
++        minSdk = 27
++        targetSdk = 34
++        versionCode = 1
++        versionName = "1.0"
++
++        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++    }
++
++    buildTypes {
++        release {
++            isMinifyEnabled = false
++            proguardFiles(
++                getDefaultProguardFile("proguard-android-optimize.txt"),
++                "proguard-rules.pro"
++            )
++        }
++    }
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_1_8
++        targetCompatibility = JavaVersion.VERSION_1_8
++    }
++    kotlinOptions {
++        jvmTarget = "1.8"
++    }
++}
++
++dependencies {
++
++    implementation(libs.androidx.core.ktx)
++    implementation(libs.androidx.appcompat)
++    implementation(libs.material)
++    implementation(libs.androidx.activity)
++    implementation(libs.androidx.constraintlayout)
++    testImplementation(libs.junit)
++    androidTestImplementation(libs.androidx.junit)
++    androidTestImplementation(libs.androidx.espresso.core)
++}
+\ No newline at end of file
+Index: ../03-RecyclerView/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/app/src/main/AndroidManifest.xml b/../03-RecyclerView/app/src/main/AndroidManifest.xml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/app/src/main/AndroidManifest.xml	
+@@ -0,0 +1,29 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools">
++
++    <application
++        android:allowBackup="true"
++        android:dataExtractionRules="@xml/data_extraction_rules"
++        android:fullBackupContent="@xml/backup_rules"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:roundIcon="@mipmap/ic_launcher_round"
++        android:supportsRtl="true"
++        android:theme="@style/Theme.RecyclerView"
++        tools:targetApi="31">
++        <activity
++            android:name=".MainActivity"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <meta-data
++            android:name="preloaded_fonts"
++            android:resource="@array/preloaded_fonts" />
++    </application>
++
++</manifest>
+\ No newline at end of file
+Index: .idea/.name
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+new file mode 100644
+--- /dev/null	
++++ b/.idea/.name	
+@@ -0,0 +1,1 @@
++Libreria
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/.idea/.gitignore	
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/compiler.xml
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/compiler.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="17" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/kotlinc.xml
+===================================================================
+diff --git a/.idea/kotlinc.xml b/.idea/kotlinc.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/kotlinc.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="KotlinJpsPluginSettings">
++    <option name="version" value="1.8.20" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/proguard-rules.pro
+===================================================================
+diff --git a/app/proguard-rules.pro b/app/proguard-rules.pro
+new file mode 100644
+--- /dev/null	
++++ b/app/proguard-rules.pro	
+@@ -0,0 +1,21 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: ../03-RecyclerView/gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../03-RecyclerView/gradle/libs.versions.toml b/../03-RecyclerView/gradle/libs.versions.toml
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/gradle/libs.versions.toml	
+@@ -0,0 +1,26 @@
++[versions]
++agp = "8.3.1"
++kotlin = "1.9.0"
++coreKtx = "1.13.0"
++junit = "4.13.2"
++junitVersion = "1.1.5"
++espressoCore = "3.5.1"
++appcompat = "1.7.0"
++material = "1.12.0"
++activity = "1.8.0"
++constraintlayout = "2.1.4"
++
++[libraries]
++androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
++junit = { group = "junit", name = "junit", version.ref = "junit" }
++androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
++androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
++androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
++material = { group = "com.google.android.material", name = "material", version.ref = "material" }
++androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
++androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
++
++[plugins]
++androidApplication = { id = "com.android.application", version.ref = "agp" }
++jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
++
+Index: ../01-clases/app/src/main/res/values-es/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <string name=\"saludo\">Saludo en portrait y español</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../01-clases/app/src/main/res/values-es/strings.xml b/../01-clases/app/src/main/res/values-es/strings.xml
+--- a/../01-clases/app/src/main/res/values-es/strings.xml	
++++ b/../01-clases/app/src/main/res/values-es/strings.xml	
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <string name="saludo">Saludo en portrait y español</string>
++    <string name="saludo">Hola Mundo</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: ../03-RecyclerView/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/../03-RecyclerView/gradle/wrapper/gradle-wrapper.properties b/../03-RecyclerView/gradle/wrapper/gradle-wrapper.properties
+new file mode 100644
+--- /dev/null	
++++ b/../03-RecyclerView/gradle/wrapper/gradle-wrapper.properties	
+@@ -0,0 +1,6 @@
++#Sat Aug 17 00:09:22 ECT 2024
++distributionBase=GRADLE_USER_HOME
++distributionPath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
++zipStoreBase=GRADLE_USER_HOME
++zipStorePath=wrapper/dists
+Index: app/src/main/java/com/example/libreria/SQLiteHelperCharacter.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/SQLiteHelperCharacter.kt b/app/src/main/java/com/example/libreria/SQLiteHelperCharacter.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/SQLiteHelperCharacter.kt	
+@@ -0,0 +1,141 @@
++package com.example.libreria
++
++import android.content.ContentValues
++import android.content.Context
++import android.database.sqlite.SQLiteDatabase
++import android.database.sqlite.SQLiteOpenHelper
++
++class SQLiteHelperCharacter(
++    contexto: Context?
++) : SQLiteOpenHelper(
++    contexto,
++    "moviles",
++    null,
++    1
++) {
++    override fun onCreate(db: SQLiteDatabase?) {
++        // Crear la tabla de Character
++        val scriptSQLCrearTablaCharacter =
++            """
++                CREATE TABLE CHARACTER(
++                    idCharacter INTEGER PRIMARY KEY AUTOINCREMENT,
++                    name VARCHAR(20),
++                    gender VARCHAR(6),
++                    age INT,
++                    birthday VARCHAR(10),
++                    difficulty DOUBLE,
++                    playable BOOLEAN
++                )
++            """.trimIndent()
++        db?.execSQL(scriptSQLCrearTablaCharacter)
++    }
++
++    override fun onUpgrade(
++        p0: SQLiteDatabase?, p1: Int, p2: Int) {}
++
++    fun crearCharacter(
++        name: String,
++        gender: String,
++        age: Int,
++        birthday: String,
++        difficulty: Double,
++        playable: Boolean
++    ): Boolean {
++        val basedatosEscritura = writableDatabase
++        val valoresAGuardar = ContentValues().apply {
++            put("name", name)
++            put("gender", gender)
++            put("age", age)
++            put("birthday", birthday)
++            put("difficulty", difficulty)
++            put("playable", playable)
++        }
++        val resultadoGuardar = basedatosEscritura
++            .insert(
++                "CHARACTER", // nombre tabla
++                null,
++                valoresAGuardar // valores
++            )
++        basedatosEscritura.close()
++        return resultadoGuardar != -1L
++    }
++
++    fun eliminarCharacterFormulario(idCharacter: Int): Boolean {
++        val conexionEscritura = writableDatabase
++        val parametrosConsultaDelete = arrayOf(idCharacter.toString())
++        val resultadoEliminacion = conexionEscritura
++            .delete(
++                "CHARACTER",
++                "idCharacter=?",
++                parametrosConsultaDelete
++            )
++        conexionEscritura.close()
++        return resultadoEliminacion != -1
++    }
++
++    fun actualizarCharacterFormulario(
++        idCharacter: Int,
++        name: String,
++        gender: String,
++        age: Int,
++        birthday: String,
++        difficulty: Double,
++        playable: Boolean
++    ): Boolean {
++        val conexionEscritura = writableDatabase
++        val valoresAActualizar = ContentValues().apply {
++            put("name", name)
++            put("gender", gender)
++            put("age", age)
++            put("birthday", birthday)
++            put("difficulty", difficulty)
++            put("playable", playable)
++        }
++        val parametrosConsultaActualizar = arrayOf(idCharacter.toString())
++        val resultadoActualizacion = conexionEscritura
++            .update(
++                "CHARACTER",
++                valoresAActualizar,
++                "idCharacter=?",
++                parametrosConsultaActualizar
++            )
++        conexionEscritura.close()
++        return resultadoActualizacion != -1
++    }
++
++    fun consultarCharacterPorID(idCharacter: Int): BCharacter? {
++        val baseDatosLectura = readableDatabase
++        val scriptConsultaLectura = """
++            SELECT * FROM CHARACTER WHERE idCharacter = ?
++        """.trimIndent()
++        val arregloParametrosConsultaLectura = arrayOf(
++            idCharacter.toString()
++        )
++        val resultadoConsultaLectura = baseDatosLectura
++            .rawQuery(
++                scriptConsultaLectura,
++                arregloParametrosConsultaLectura
++            )
++
++        val existeAlMenosUno = resultadoConsultaLectura
++            .moveToFirst()
++        val arregloRespuesta = arrayListOf<BCharacter>()
++        if (existeAlMenosUno) {
++            do {
++                val character = BCharacter(
++                    resultadoConsultaLectura.getInt(0),
++                    resultadoConsultaLectura.getString(1),
++                    resultadoConsultaLectura.getString(2),
++                    resultadoConsultaLectura.getInt(3),
++                    resultadoConsultaLectura.getString(4),
++                    resultadoConsultaLectura.getDouble(5),
++                    resultadoConsultaLectura.getInt(6) > 0
++                )
++                arregloRespuesta.add(character)
++            } while (resultadoConsultaLectura.moveToNext())
++        }
++        resultadoConsultaLectura.close()
++        baseDatosLectura.close()
++        return arregloRespuesta.firstOrNull()
++    }
++}
+Index: app/google-services.json
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	
++++ b/app/google-services.json	
+@@ -0,0 +1,29 @@
++{
++  "project_info": {
++    "project_number": "879302133003",
++    "project_id": "entidadeslibreria-libro",
++    "storage_bucket": "entidadeslibreria-libro.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:879302133003:android:60c9d28f73cb1069654e0e",
++        "android_client_info": {
++          "package_name": "com.example.libreria"
++        }
++      },
++      "oauth_client": [],
++      "api_key": [
++        {
++          "current_key": "AIzaSyBSt20WRXKtgJpvfmp2J76D8CAyB0ZaR8U"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": []
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: app/src/main/res/values-night/themes.xml
+===================================================================
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/values-night/themes.xml	
+@@ -0,0 +1,7 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Base.Theme.Libreria" parent="Theme.Material3.DayNight.NoActionBar">
++        <!-- Customize your dark theme here. -->
++        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
++    </style>
++</resources>
+\ No newline at end of file
+Index: app/.gitignore
+===================================================================
+diff --git a/app/.gitignore b/app/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/app/.gitignore	
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+new file mode 100644
+--- /dev/null	
++++ b/gradle/wrapper/gradle-wrapper.properties	
+@@ -0,0 +1,6 @@
++#Thu Jul 18 20:43:38 ECT 2024
++distributionBase=GRADLE_USER_HOME
++distributionPath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
++zipStoreBase=GRADLE_USER_HOME
++zipStorePath=wrapper/dists
+Index: app/build.gradle
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+new file mode 100644
+--- /dev/null	
++++ b/app/build.gradle	
+@@ -0,0 +1,53 @@
++plugins {
++    id 'com.android.application'
++    id 'org.jetbrains.kotlin.android'
++    id 'com.google.firebase.appdistribution'
++    id 'com.google.gms.google-services'
++    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
++}
++
++android {
++    namespace 'com.example.libreria'
++    compileSdk 34
++
++    defaultConfig {
++        applicationId "com.example.libreria"
++        minSdk 27
++        targetSdk 34
++        versionCode 1
++        versionName "1.0"
++
++        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
++    }
++
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
++        }
++    }
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_1_8
++        targetCompatibility JavaVersion.VERSION_1_8
++    }
++    kotlinOptions {
++        jvmTarget = '1.8'
++    }
++    buildFeatures {
++        viewBinding true
++    }
++}
++
++dependencies {
++
++    implementation 'androidx.core:core-ktx:1.13.1'
++    implementation 'androidx.appcompat:appcompat:1.7.0'
++    implementation 'com.google.android.material:material:1.12.0'
++    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
++    implementation 'com.google.android.gms:play-services-maps:19.0.0'
++    implementation 'com.google.maps:google-maps-services:2.2.0'
++    implementation 'com.google.android.gms:play-services-location:21.3.0'
++    testImplementation 'junit:junit:4.13.2'
++    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
++    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
++}
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/values/themes.xml	
+@@ -0,0 +1,9 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Base.Theme.Libreria" parent="Theme.Material3.DayNight.NoActionBar">
++        <!-- Customize your light theme here. -->
++        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
++    </style>
++
++    <style name="Theme.Libreria" parent="Base.Theme.Libreria" />
++</resources>
+\ No newline at end of file
+Index: app/src/androidTest/java/com/example/libreria/ExampleInstrumentedTest.kt
+===================================================================
+diff --git a/app/src/androidTest/java/com/example/libreria/ExampleInstrumentedTest.kt b/app/src/androidTest/java/com/example/libreria/ExampleInstrumentedTest.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/androidTest/java/com/example/libreria/ExampleInstrumentedTest.kt	
+@@ -0,0 +1,24 @@
++package com.example.libreria
++
++import androidx.test.platform.app.InstrumentationRegistry
++import androidx.test.ext.junit.runners.AndroidJUnit4
++
++import org.junit.Test
++import org.junit.runner.RunWith
++
++import org.junit.Assert.*
++
++/**
++ * Instrumented test, which will execute on an Android device.
++ *
++ * See [testing documentation](http://d.android.com/tools/testing).
++ */
++@RunWith(AndroidJUnit4::class)
++class ExampleInstrumentedTest {
++    @Test
++    fun useAppContext() {
++        // Context of the app under test.
++        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
++        assertEquals("com.example.libreria", appContext.packageName)
++    }
++}
+\ No newline at end of file
+Index: build.gradle
+===================================================================
+diff --git a/build.gradle b/build.gradle
+new file mode 100644
+--- /dev/null	
++++ b/build.gradle	
+@@ -0,0 +1,13 @@
++buildscript {
++    dependencies {
++        classpath 'com.android.tools.build:gradle:8.3.1'
++        classpath 'com.google.gms:google-services:4.3.14'
++        classpath 'com.google.firebase:firebase-appdistribution-gradle:3.1.1'
++    }
++}// Top-level build file where you can add configuration options common to all sub-projects/modules.
++plugins {
++    id 'com.android.application' version '8.3.1' apply false
++    id 'com.android.library' version '8.3.1' apply false
++    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
++    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' version '2.0.1' apply false
++}
+\ No newline at end of file
+Index: settings.gradle
+===================================================================
+diff --git a/settings.gradle b/settings.gradle
+new file mode 100644
+--- /dev/null	
++++ b/settings.gradle	
+@@ -0,0 +1,16 @@
++pluginManagement {
++    repositories {
++        google()
++        mavenCentral()
++        gradlePluginPortal()
++    }
++}
++dependencyResolutionManagement {
++    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
++    repositories {
++        google()
++        mavenCentral()
++    }
++}
++rootProject.name = "Libreria"
++include ':app'
+Index: app/src/main/res/layout/activity_charactercrud.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_charactercrud.xml b/app/src/main/res/layout/activity_charactercrud.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/layout/activity_charactercrud.xml	
+@@ -0,0 +1,145 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/cl_character"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".CRUDCharacter">
++
++    <TextView
++        android:id="@+id/txt_crudCharacter"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Character CRUD"
++        android:textSize="24sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.035" />
++
++    <Button
++        android:id="@+id/btn_actualizar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="124dp"
++        android:text="Actualizar"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.469"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <Button
++        android:id="@+id/btn_crear_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="32dp"
++        android:text="Crear"
++        app:layout_constraintBottom_toBottomOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintEnd_toStartOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toTopOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintVertical_bias="0.0" />
++
++    <Button
++        android:id="@+id/btn_buscar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="48dp"
++        android:text="Buscar"
++        app:layout_constraintEnd_toEndOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintStart_toStartOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toBottomOf="@+id/btn_actualizar_bdd" />
++
++    <Button
++        android:id="@+id/btn_eliminar_bdd"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="32dp"
++        android:text="Eliminar"
++        app:layout_constraintBottom_toBottomOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintStart_toEndOf="@+id/btn_actualizar_bdd"
++        app:layout_constraintTop_toTopOf="@+id/btn_actualizar_bdd" />
++
++    <EditText
++        android:id="@+id/input_id"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="60dp"
++        android:ems="10"
++        android:hint="Ingrese el ID"
++        android:inputType="text"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.497"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/txt_crudCharacter"
++        app:layout_constraintVertical_bias="0.001" />
++
++    <EditText
++        android:id="@+id/input_name"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese el nombre"
++        android:inputType="text"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.497"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_id"
++        app:layout_constraintVertical_bias="0.055" />
++
++    <EditText
++        android:id="@+id/input_gender"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese gender"
++        android:inputType="text"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.497"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/input_name"
++        app:layout_constraintVertical_bias="0.032" />
++
++    <EditText
++        android:id="@+id/input_age"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese la edad"
++        android:inputType="number"
++        tools:layout_editor_absoluteX="100dp"
++        tools:layout_editor_absoluteY="292dp" />
++
++    <EditText
++        android:id="@+id/input_birthday"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese el cumpleaños"
++        android:inputType="text"
++        tools:layout_editor_absoluteX="100dp"
++        tools:layout_editor_absoluteY="353dp" />
++
++    <EditText
++        android:id="@+id/input_difficulty"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Ingrese dificultad"
++        android:inputType="numberDecimal"
++        tools:layout_editor_absoluteX="103dp"
++        tools:layout_editor_absoluteY="405dp" />
++
++    <CheckBox
++        android:id="@+id/chk_playable"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Jugable"
++        tools:layout_editor_absoluteX="163dp"
++        tools:layout_editor_absoluteY="468dp" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/deploymentTargetDropDown.xml	
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <value>
++      <entry key="app">
++        <State />
++      </entry>
++    </value>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/BStats.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/BStats.kt b/app/src/main/java/com/example/libreria/BStats.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/BStats.kt	
+@@ -0,0 +1,54 @@
++package com.example.libreria
++
++import android.os.Build
++import android.os.Parcel
++import android.os.Parcelable
++import androidx.annotation.RequiresApi
++
++class BStats(
++    var idStats: Int,
++    var guild: String,
++    var atk: Int,
++    var def:Int,
++    var speed: Double,
++    var lucky: Boolean
++): Parcelable{
++    @RequiresApi(Build.VERSION_CODES.Q)
++    constructor(parcel: Parcel): this(
++        parcel.readInt(),
++        parcel.readString()!!,
++        parcel.readInt(),
++        parcel.readInt(),
++        parcel.readDouble(),
++        parcel.readBoolean()
++    ) {
++    }
++    override fun toString(): String {
++        return "$guild $atk $def $speed $lucky"
++    }
++
++    @RequiresApi(Build.VERSION_CODES.Q)
++    override fun writeToParcel(parcel: Parcel, flags: Int) {
++        parcel.writeInt(idStats)
++        parcel.writeString(guild)
++        parcel.writeInt(atk)
++        parcel.writeInt(def)
++        parcel.writeDouble(speed)
++        parcel.writeBoolean(lucky)
++    }
++
++    override fun describeContents(): Int {
++        return 0
++    }
++
++    companion object CREATOR : Parcelable.Creator<BStats> {
++        @RequiresApi(Build.VERSION_CODES.Q)
++        override fun createFromParcel(parcel: Parcel): BStats {
++            return BStats(parcel)
++        }
++
++        override fun newArray(size: Int): Array<BStats?> {
++            return arrayOfNulls(size)
++        }
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/SQLiteHelperStats.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/SQLiteHelperStats.kt b/app/src/main/java/com/example/libreria/SQLiteHelperStats.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/SQLiteHelperStats.kt	
+@@ -0,0 +1,135 @@
++package com.example.libreria
++
++import android.content.ContentValues
++import android.content.Context
++import android.database.sqlite.SQLiteDatabase
++import android.database.sqlite.SQLiteOpenHelper
++
++class SQLiteHelperStats(
++    contexto: Context?
++) : SQLiteOpenHelper(
++    contexto,
++    "moviles",
++    null,
++    1
++) {
++    override fun onCreate(db: SQLiteDatabase?) {
++        // Crear la tabla de Stats
++        val scriptSQLCrearTablaStats =
++            """
++                CREATE TABLE STATS(
++                    idStats INTEGER PRIMARY KEY AUTOINCREMENT,
++                    guild VARCHAR(30),
++                    atk INTEGER,
++                    def INTEGER,
++                    speed DOUBLE,
++                    lucky BOOLEAN
++                )
++            """.trimIndent()
++        db?.execSQL(scriptSQLCrearTablaStats)
++    }
++
++    override fun onUpgrade(
++        p0: SQLiteDatabase?, p1: Int, p2: Int) {}
++
++    fun crearStats(
++        guild: String,
++        atk: Int,
++        def: Int,
++        speed: Double,
++        lucky: Boolean
++    ): Boolean {
++        val basedatosEscritura = writableDatabase
++        val valoresAGuardar = ContentValues().apply {
++            put("guild", guild)
++            put("atk", atk)
++            put("def", def)
++            put("speed", speed)
++            put("lucky", lucky)
++        }
++        val resultadoGuardar = basedatosEscritura
++            .insert(
++                "STATS", // nombre tabla
++                null,
++                valoresAGuardar // valores
++            )
++        basedatosEscritura.close()
++        return resultadoGuardar != -1L
++    }
++
++    fun eliminarStatsFormulario(idStats: Int): Boolean {
++        val conexionEscritura = writableDatabase
++        val parametrosConsultaDelete = arrayOf(idStats.toString())
++        val resultadoEliminacion = conexionEscritura
++            .delete(
++                "STATS",
++                "idStats=?",
++                parametrosConsultaDelete
++            )
++        conexionEscritura.close()
++        return resultadoEliminacion != -1
++    }
++
++    fun actualizarStatsFormulario(
++        idStats: Int,
++        guild: String,
++        atk: Int,
++        def: Int,
++        speed: Double,
++        lucky: Boolean
++    ): Boolean {
++        val conexionEscritura = writableDatabase
++        val valoresAActualizar = ContentValues().apply {
++            put("guild", guild)
++            put("atk", atk)
++            put("def", def)
++            put("speed", speed)
++            put("lucky", lucky)
++        }
++        val parametrosConsultaActualizar = arrayOf(idStats.toString())
++        val resultadoActualizacion = conexionEscritura
++            .update(
++                "STATS",
++                valoresAActualizar,
++                "idStats=?",
++                parametrosConsultaActualizar
++            )
++        conexionEscritura.close()
++        return resultadoActualizacion != -1
++    }
++
++    fun consultarStatsPorID(idStats: Int): BStats? {
++        val baseDatosLectura = readableDatabase
++        val scriptConsultaLectura = """
++            SELECT * FROM STATS WHERE idStats = ?
++        """.trimIndent()
++        val arregloParametrosConsultaLectura = arrayOf(
++            idStats.toString()
++        )
++        val resultadoConsultaLectura = baseDatosLectura
++            .rawQuery(
++                scriptConsultaLectura,
++                arregloParametrosConsultaLectura
++            )
++
++        val existeAlMenosUno = resultadoConsultaLectura
++            .moveToFirst()
++        val arregloRespuesta = arrayListOf<BStats>()
++        if (existeAlMenosUno) {
++            do {
++                val stats = BStats(
++                    resultadoConsultaLectura.getInt(0),
++                    resultadoConsultaLectura.getString(1),
++                    resultadoConsultaLectura.getInt(2),
++                    resultadoConsultaLectura.getInt(3),
++                    resultadoConsultaLectura.getDouble(4),
++                    resultadoConsultaLectura.getInt(5) > 0
++                )
++                arregloRespuesta.add(stats)
++            } while (resultadoConsultaLectura.moveToNext())
++        }
++        resultadoConsultaLectura.close()
++        baseDatosLectura.close()
++        return arregloRespuesta.firstOrNull()
++    }
++}
+Index: app/src/main/res/layout/activity_google_maps_inicio.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_google_maps_inicio.xml b/app/src/main/res/layout/activity_google_maps_inicio.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/layout/activity_google_maps_inicio.xml	
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<fragment xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:map="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/map"
++    android:name="com.google.android.gms.maps.SupportMapFragment"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".GoogleMapsInicio" />
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/GoogleMapsInicio.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/GoogleMapsInicio.kt b/app/src/main/java/com/example/libreria/GoogleMapsInicio.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/GoogleMapsInicio.kt	
+@@ -0,0 +1,48 @@
++package com.example.libreria
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++
++import com.google.android.gms.maps.CameraUpdateFactory
++import com.google.android.gms.maps.GoogleMap
++import com.google.android.gms.maps.OnMapReadyCallback
++import com.google.android.gms.maps.SupportMapFragment
++import com.google.android.gms.maps.model.LatLng
++import com.google.android.gms.maps.model.MarkerOptions
++import com.example.libreria.databinding.ActivityGoogleMapsInicioBinding
++
++class GoogleMapsInicio : AppCompatActivity(), OnMapReadyCallback {
++
++    private lateinit var mMap: GoogleMap
++    private lateinit var binding: ActivityGoogleMapsInicioBinding
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++
++        binding = ActivityGoogleMapsInicioBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++
++        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
++        val mapFragment = supportFragmentManager
++            .findFragmentById(R.id.map) as SupportMapFragment
++        mapFragment.getMapAsync(this)
++    }
++
++    /**
++     * Manipulates the map once available.
++     * This callback is triggered when the map is ready to be used.
++     * This is where we can add markers or lines, add listeners or move the camera. In this case,
++     * we just add a marker near Sydney, Australia.
++     * If Google Play services is not installed on the device, the user will be prompted to install
++     * it inside the SupportMapFragment. This method will only be triggered once the user has
++     * installed Google Play services and returned to the app.
++     */
++    override fun onMapReady(googleMap: GoogleMap) {
++        mMap = googleMap
++
++        // Add a marker in Sydney and move the camera
++        val sydney = LatLng(-34.0, 151.0)
++        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
++        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/GGoogleMapsActivity.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/GGoogleMapsActivity.kt b/app/src/main/java/com/example/libreria/GGoogleMapsActivity.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/GGoogleMapsActivity.kt	
+@@ -0,0 +1,186 @@
++package com.example.libreria
++
++import android.content.pm.PackageManager
++import android.os.Bundle
++import android.widget.Button
++import androidx.appcompat.app.AppCompatActivity
++import androidx.core.app.ActivityCompat
++import androidx.core.content.ContextCompat
++import com.google.android.gms.maps.CameraUpdateFactory
++import com.google.android.gms.maps.GoogleMap
++import com.google.android.gms.maps.SupportMapFragment
++import com.google.android.gms.maps.model.LatLng
++import com.google.android.gms.maps.model.Marker
++import com.google.android.gms.maps.model.MarkerOptions
++import com.google.android.material.snackbar.Snackbar
++import com.google.android.gms.location.FusedLocationProviderClient
++import com.google.maps.GeoApiContext
++import com.google.maps.GeocodingApi
++
++class GGoogleMapsActivity : AppCompatActivity() {
++    private lateinit var mapa: GoogleMap
++    var permisos = false
++    private lateinit var fusedLocationClient: FusedLocationProviderClient
++    private lateinit var geoApiContext: GeoApiContext
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_ggoogle_maps)
++        solicitarPermisos()
++        iniciarLogicaMapa()
++        val botonLibPrincipal = findViewById<Button>(R.id.btn_ir_libreria)
++        botonLibPrincipal.setOnClickListener {
++            val idLibreria = 1
++            moverLibreria(idLibreria)
++            obtenerUltimaDireccion { direccion ->
++                if (direccion != null) {
++                    obtenerCoordenadasDeDireccion(direccion) { latLng ->
++                        if (latLng != null) {
++                            moverCamaraConZoom(latLng, 17f)
++                        } else {
++                            mostrarSnackbar("No se pudo obtener las coordenadas.")
++                        }
++                    }
++                } else {
++                    mostrarSnackbar("No se pudo obtener la dirección.")
++                }
++            }
++        }
++    }
++
++    fun solicitarPermisos(){
++        val contexto = this.applicationContext
++        val nombrePermisoFine = android.Manifest.permission.ACCESS_FINE_LOCATION
++        val nombrePermisoCoarse = android.Manifest.permission.ACCESS_COARSE_LOCATION
++        val permisoFine = ContextCompat.checkSelfPermission(contexto, nombrePermisoFine)
++        val permisoCoarse = ContextCompat.checkSelfPermission(contexto, nombrePermisoCoarse)
++        val tienePermisos = permisoFine == PackageManager.PERMISSION_GRANTED &&
++                permisoCoarse == PackageManager.PERMISSION_GRANTED
++        if(tienePermisos){
++            permisos = true
++        }else{
++            ActivityCompat.requestPermissions(
++                this, arrayOf(nombrePermisoFine, nombrePermisoCoarse), 1
++            )
++        }
++    }
++
++    fun iniciarLogicaMapa(){
++        val fragmentoMapa = supportFragmentManager
++            .findFragmentById(R.id.map) as SupportMapFragment
++        fragmentoMapa.getMapAsync{ googleMap ->
++            with(googleMap){
++                mapa = googleMap
++                establecerConfiguracionMapa()
++                escucharListeners()
++            }
++        }
++        // Initialize the GeoApiContext
++        geoApiContext = GeoApiContext.Builder()
++            .apiKey(getString(R.string.google_maps_key)) // Your Google Maps API Key
++            .build()
++    }
++    fun establecerConfiguracionMapa(){
++        val contexto = this.applicationContext
++        with(mapa){
++            val nombrePermisoFine = android.Manifest.permission.ACCESS_FINE_LOCATION
++            val nombrePermisoCoarse = android.Manifest.permission.ACCESS_COARSE_LOCATION
++            val permisoFine = ContextCompat.checkSelfPermission(contexto, nombrePermisoFine)
++            val permisoCoarse = ContextCompat.checkSelfPermission(contexto, nombrePermisoCoarse)
++            val tienePermisos = permisoFine == PackageManager.PERMISSION_GRANTED &&
++                    permisoCoarse == PackageManager.PERMISSION_GRANTED
++            if(tienePermisos){
++                mapa.isMyLocationEnabled = true
++                uiSettings.isMyLocationButtonEnabled = true
++            }
++            uiSettings.isZoomControlsEnabled = true
++        }
++    }
++    fun moverLibreria(idLibreria: Int) {
++        val zoom = 17f
++        val coordenadasLibreria = obtenerCoordenadasLibreria(idLibreria)
++
++        if (coordenadasLibreria != null) {
++            val titulo = "Librería"
++            val markLibreria = anadirMarcador(coordenadasLibreria, titulo)
++            markLibreria.tag = titulo
++            moverCamaraConZoom(coordenadasLibreria, zoom)
++        } else {
++            mostrarSnackbar("No se encontraron coordenadas para la librería.")
++        }
++    }
++
++    fun moverCamaraConZoom(latlang: LatLng, zoom: Float = 10f){
++        mapa.moveCamera(
++            CameraUpdateFactory.newLatLngZoom(
++                latlang, zoom
++            )
++        )
++    }
++    fun anadirMarcador(latLang: LatLng, title:String): Marker {
++        return mapa.addMarker(
++            MarkerOptions().position(latLang)
++                .title(title)
++        )!!
++    }
++    fun mostrarSnackbar(texto:String){
++        val snack = Snackbar.make(
++            findViewById(R.id.cl_google_maps),
++            texto,
++            Snackbar.LENGTH_INDEFINITE
++        )
++        snack.show()
++    }
++    fun escucharListeners(){
++        mapa.setOnMarkerClickListener {
++            mostrarSnackbar("setOnMarkerClickListener $it.tag")
++            return@setOnMarkerClickListener true
++        }
++        mapa.setOnCameraMoveListener {
++            mostrarSnackbar("setOnCameraMoveListener")
++        }
++        mapa.setOnCameraMoveStartedListener {
++            mostrarSnackbar("setOnCameraMoveStartedListener")
++        }
++        mapa.setOnCameraIdleListener {
++            mostrarSnackbar("setOnCameraIdleListener")
++        }
++    }
++    private fun obtenerUltimaDireccion(callback: (String?) -> Unit) {
++        val dbHelper = SQLiteHelperCharacter(this)
++        val libreria = dbHelper.consultarCharacterPorID(1) // Obtener la última librería
++        callback(libreria?.gender)
++    }
++
++    private fun obtenerCoordenadasDeDireccion(direccion: String, callback: (LatLng?) -> Unit) {
++        val task = GeocodingApi.geocode(geoApiContext, direccion).await()
++        if (task.isNotEmpty()) {
++            val resultado = task[0]
++            val latLng = LatLng(resultado.geometry.location.lat, resultado.geometry.location.lng)
++            callback(latLng)
++        } else {
++            callback(null)
++        }
++    }
++    fun obtenerCoordenadasLibreria(idLibreria: Int): LatLng? {
++        val libreria = SQLiteHelperCharacter(this).consultarCharacterPorID(idLibreria)
++        return if (libreria != null) {
++            // Asumiendo que el campo direccion tiene formato "lat,lng"
++            val coordenadas = libreria.gender.split(",")
++            if (coordenadas.size == 2) {
++                val lat = coordenadas[0].toDoubleOrNull()
++                val lng = coordenadas[1].toDoubleOrNull()
++                if (lat != null && lng != null) {
++                    LatLng(lat, lng)
++                } else {
++                    null
++                }
++            } else {
++                null
++            }
++        } else {
++            null
++        }
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/DataBaseStats.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/DataBaseStats.kt b/app/src/main/java/com/example/libreria/DataBaseStats.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/DataBaseStats.kt	
+@@ -0,0 +1,7 @@
++package com.example.libreria
++
++class DataBaseStats {
++    companion object{
++        var tablaStats: SQLiteHelperStats? = null
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/values/colors.xml	
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++</resources>
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/DataBaseCharacter.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/DataBaseCharacter.kt b/app/src/main/java/com/example/libreria/DataBaseCharacter.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/DataBaseCharacter.kt	
+@@ -0,0 +1,7 @@
++package com.example.libreria
++
++class DataBaseCharacter {
++    companion object{
++        var tablaCharacter: SQLiteHelperCharacter? = null
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/libreria/CRUDStats.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/libreria/CRUDStats.kt b/app/src/main/java/com/example/libreria/CRUDStats.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/libreria/CRUDStats.kt	
+@@ -0,0 +1,118 @@
++package com.example.libreria
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import com.google.android.material.snackbar.Snackbar
++import android.util.Log
++import android.widget.CheckBox
++
++class CRUDStats : AppCompatActivity() {
++    fun mostrarSnackbar(texto: String) {
++        val snack = Snackbar.make(
++            findViewById(R.id.cl_stats),
++            texto,
++            Snackbar.LENGTH_INDEFINITE
++        )
++        snack.show()
++    }
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_statscrud)
++
++        // BUSCAR STATS
++        val botonBuscarBDD = findViewById<Button>(R.id.btn_buscar_bdd)
++        botonBuscarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_statsID)
++            val guild = findViewById<EditText>(R.id.input_guild)
++            val atk = findViewById<EditText>(R.id.input_atk)
++            val def = findViewById<EditText>(R.id.input_def)
++            val speed = findViewById<EditText>(R.id.input_speed)
++            val lucky = findViewById<CheckBox>(R.id.chk_lucky)
++            try {
++                val stats = DataBaseStats.tablaStats!!.consultarStatsPorID(id.text.toString().toInt())
++                if (stats == null) {
++                    mostrarSnackbar("Stats no encontradas")
++                    id.setText("")
++                    guild.setText("")
++                    atk.setText("")
++                    def.setText("")
++                    speed.setText("")
++                    lucky.isChecked = false
++                } else {
++                    id.setText(stats.idStats.toString())
++                    guild.setText(stats.guild)
++                    atk.setText(stats.atk)
++                    def.setText(stats.def)
++                    speed.setText(stats.speed.toString())
++                    lucky.isChecked = stats.lucky
++                    mostrarSnackbar("Stats encontradas")
++                }
++            } catch (e: Exception) {
++                Log.e("CRUDStats", "Error al buscar stats", e)
++            }
++        }
++
++        // FUNCION PARA CREAR STATS
++        val botonCrearBDD = findViewById<Button>(R.id.btn_crear_bdd)
++        botonCrearBDD.setOnClickListener {
++            val guild = findViewById<EditText>(R.id.input_guild)
++            val atk = findViewById<EditText>(R.id.input_atk)
++            val def = findViewById<EditText>(R.id.input_def)
++            val speed = findViewById<EditText>(R.id.input_speed)
++            val lucky = findViewById<CheckBox>(R.id.chk_lucky)
++            try {
++                val respuesta = DataBaseStats.tablaStats!!.crearStats(
++                    guild.text.toString(),
++                    atk.text.toString().toInt(),
++                    def.text.toString().toInt(),
++                    speed.text.toString().toDouble(),
++                    lucky.isChecked
++                )
++                if (respuesta) mostrarSnackbar("Stats Creadas!")
++            } catch (e: Exception) {
++                Log.e("CRUDStats", "Error al crear stats", e)
++            }
++        }
++
++        // FUNCION PARA ACTUALIZAR STATS
++        val botonActualizarBDD = findViewById<Button>(R.id.btn_actualizar_bdd)
++        botonActualizarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_statsID)
++            val guild = findViewById<EditText>(R.id.input_guild)
++            val atk = findViewById<EditText>(R.id.input_atk)
++            val def = findViewById<EditText>(R.id.input_def)
++            val speed = findViewById<EditText>(R.id.input_speed)
++            val lucky = findViewById<CheckBox>(R.id.chk_lucky)
++            try {
++                val respuesta = DataBaseStats.tablaStats!!.actualizarStatsFormulario(
++                    id.text.toString().toInt(),
++                    guild.text.toString(),
++                    atk.text.toString().toInt(),
++                    def.text.toString().toInt(),
++                    speed.text.toString().toDouble(),
++                    lucky.isChecked
++                )
++                if (respuesta) mostrarSnackbar("Stats Actualizado!")
++            } catch (e: Exception) {
++                Log.e("CRUDStats", "Error al actualizar stats", e)
++            }
++        }
++
++        // FUNCION PARA ELIMINAR STATS
++        val botonEliminarBDD = findViewById<Button>(R.id.btn_eliminar_bdd)
++        botonEliminarBDD.setOnClickListener {
++            val id = findViewById<EditText>(R.id.input_statsID)
++            try {
++                val respuesta = DataBaseStats.tablaStats!!.eliminarStatsFormulario(
++                    id.text.toString().toInt()
++                )
++                if (respuesta) mostrarSnackbar("Stats Eliminado!")
++            } catch (e: Exception) {
++                Log.e("CRUDStats", "Error al eliminar stats", e)
++            }
++        }
++    }
++}
+Index: ../01-clases/app/src/main/res/layout/activity_blist_view.xml
+===================================================================
+diff --git a/../01-clases/app/src/main/res/layout/activity_blist_view.xml b/app/src/main/res/layout/activity_ggoogle_maps.xml
+rename from ../01-clases/app/src/main/res/layout/activity_blist_view.xml
+rename to app/src/main/res/layout/activity_ggoogle_maps.xml
+--- a/../01-clases/app/src/main/res/layout/activity_blist_view.xml	
++++ b/app/src/main/res/layout/activity_ggoogle_maps.xml	
+@@ -2,29 +2,31 @@
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/cl_blist_view"
++    android:id="@+id/cl_google_maps"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".BListView">
+-
+-    <ListView
+-        android:id="@+id/lv_list_view"
+-        android:layout_width="341dp"
+-        android:layout_height="347dp"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.364" />
++    tools:context=".GGoogleMapsActivity">
+ 
+     <Button
+-        android:id="@+id/btn_anadir_list_view"
++        android:id="@+id/btn_ir_libreria"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginTop="72dp"
+-        android:text="Añadir"
+-        app:layout_constraintEnd_toEndOf="@+id/lv_list_view"
++        android:layout_marginBottom="28dp"
++        android:text="Libreria Principal"
++        app:layout_constraintBottom_toTopOf="@+id/map"
++        app:layout_constraintEnd_toEndOf="@+id/map"
+         app:layout_constraintHorizontal_bias="0.498"
+-        app:layout_constraintStart_toStartOf="@+id/lv_list_view"
+-        app:layout_constraintTop_toBottomOf="@+id/lv_list_view" />
++        app:layout_constraintStart_toStartOf="@+id/map" />
++
++    <fragment
++        android:id="@+id/map"
++        android:name="com.google.android.gms.maps.SupportMapFragment"
++        android:layout_width="363dp"
++        android:layout_height="513dp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        tools:context=".GGoogleMapsActivity" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: ../01-clases/app/src/main/res/layout-land/activity_main.xml
+===================================================================
+diff --git a/../01-clases/app/src/main/res/layout-land/activity_main.xml b/../03-RecyclerView/app/src/main/res/layout/activity_main.xml
+rename from ../01-clases/app/src/main/res/layout-land/activity_main.xml
+rename to ../03-RecyclerView/app/src/main/res/layout/activity_main.xml
+--- a/../01-clases/app/src/main/res/layout-land/activity_main.xml	
++++ b/../03-RecyclerView/app/src/main/res/layout/activity_main.xml	
+@@ -2,23 +2,25 @@
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/cl_ciclo_vida"
++    android:id="@+id/main"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:background="@color/background"
++    android:background="#0c0f14"
+     tools:context=".MainActivity">
+ 
+     <TextView
+-        android:layout_width="334dp"
+-        android:layout_height="66dp"
+-        android:background="@color/background"
+-        android:text="@string/saludo"
+-        android:textAlignment="center"
+-        android:textColor="@color/text"
+-        android:textSize="24sp"
++        android:id="@+id/instagram"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:fontFamily="@font/damion"
++        android:text="@string/app_name"
++        android:textColor="@color/white"
++        android:textSize="34sp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.058"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.023" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: ../03-RecyclerView/.idea/gradle.xml
+===================================================================
+diff --git a/../03-RecyclerView/.idea/gradle.xml b/.idea/gradle.xml
+rename from ../03-RecyclerView/.idea/gradle.xml
+rename to .idea/gradle.xml
+--- a/../03-RecyclerView/.idea/gradle.xml	
++++ b/.idea/gradle.xml	
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: ../03-RecyclerView/gradle.properties
+===================================================================
+diff --git a/../03-RecyclerView/gradle.properties b/gradle.properties
+rename from ../03-RecyclerView/gradle.properties
+rename to gradle.properties
+--- a/../03-RecyclerView/gradle.properties	
++++ b/gradle.properties	
+@@ -8,8 +8,8 @@
+ # The setting is particularly useful for tweaking memory settings.
+ org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+ # When configured, Gradle will run in incubating parallel mode.
+-# This option should only be used with decoupled projects. For more details, visit
+-# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
++# This option should only be used with decoupled projects. More details, visit
++# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+ # org.gradle.parallel=true
+ # AndroidX package structure to make it clearer which packages are bundled with the
+ # Android operating system, and which are packaged with your app's APK
+diff --git a/../03-RecyclerView/.idea/vcs.xml b/.idea/vcs.xml
+rename from ../03-RecyclerView/.idea/vcs.xml
+rename to .idea/vcs.xml
+diff --git a/../03-RecyclerView/.idea/misc.xml b/.idea/misc.xml
+rename from ../03-RecyclerView/.idea/misc.xml
+rename to .idea/misc.xml
+diff --git a/../03-RecyclerView/.gitignore b/.gitignore
+rename from ../03-RecyclerView/.gitignore
+rename to .gitignore
+diff --git a/../03-RecyclerView/.idea/migrations.xml b/.idea/migrations.xml
+rename from ../03-RecyclerView/.idea/migrations.xml
+rename to .idea/migrations.xml

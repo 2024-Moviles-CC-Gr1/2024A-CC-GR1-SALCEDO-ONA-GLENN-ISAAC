@@ -1,0 +1,3 @@
+com.example.libreria.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
