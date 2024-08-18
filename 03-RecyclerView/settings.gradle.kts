@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RecyclerView"
+rootProject.name = "Instagram"
 include(":app")
